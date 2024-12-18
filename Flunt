@@ -3,10 +3,10 @@ local httpService = game:GetService("HttpService")
 local InterfaceManager = {} do
 	InterfaceManager.Folder = "FluentJupiter"
     InterfaceManager.Settings = {
-        Theme = "Darker",
+        Theme = "Vynixu",
         Acrylic = false,
-        Transparency = true,
-        MenuKeybind = "LeftControl"
+        Transparency = false,
+        MenuKeybind = "RightControl"
     }
 
     function InterfaceManager:SetFolder(folder)
