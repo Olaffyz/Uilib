@@ -5508,78 +5508,78 @@ function Library:Window(p)
 		end)
 
 		do
-			local CloseUI = p.CloseUIButton
-		
-			local CloseUIShadow = Instance.new("ImageLabel")
-			CloseUIShadow.Name = "CloseUIShadow"
-			CloseUIShadow.Parent = ScreenGui
-			CloseUIShadow.BackgroundTransparency = 1
-			CloseUIShadow.Position = UDim2.new(0, 320, 0, 24) -- ตำแหน่งใหม่
-			CloseUIShadow.Size = UDim2.new(0, 90, 0, 90) -- ใหญ่ขึ้น
-			CloseUIShadow.Image = "rbxassetid://1316045217"
-			CloseUIShadow.ImageColor3 = Color3.fromRGB(15,15,18)
-			CloseUIShadow.ImageTransparency = 0.35
-			CloseUIShadow.ScaleType = Enum.ScaleType.Slice
-			CloseUIShadow.SliceCenter = Rect.new(10, 10, 118, 118)
-			CloseUIShadow.Visible = CloseUI.Enabled
-			CloseUIShadow.ZIndex = 10
-		
-			addToTheme("Shadow", CloseUIShadow)
-		
-			local Background = Instance.new("Frame")
-			Background.Parent = CloseUIShadow
-			Background.Size = UDim2.new(1, -10, 1, -10)
-			Background.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Background.AnchorPoint = Vector2.new(0.5, 0.5)
-			Background.BackgroundColor3 = Color3.fromRGB(20,20,24)
-			Background.BorderSizePixel = 0
-			Background.ZIndex = 11
-			Background.ClipsDescendants = true
-		
-			addToTheme("Background", Background)
-		
-			local Corner = Instance.new("UICorner")
-			Corner.CornerRadius = UDim.new(0, 14)
-			Corner.Parent = Background
-		
-			local Icon = Instance.new("ImageLabel")
-			Icon.Name = "Icon"
-			Icon.Parent = Background
-			Icon.Size = UDim2.new(0, 56, 0, 56)
-			Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Icon.AnchorPoint = Vector2.new(0.5, 0.5)
-			Icon.BackgroundTransparency = 1
-			Icon.Image = "rbxassetid://115674359481242"
-			Icon.ScaleType = Enum.ScaleType.Fit
-			Icon.ZIndex = 12
-		
-			addToTheme("Icon", Icon)
-		
-			local Click = click(CloseUIShadow)
-			lak(Click, CloseUIShadow)
-		
-			Click.MouseButton1Click:Connect(function()
-				tw({
-					v = Background,
-					t = 0.15,
-					s = Enum.EasingStyle.Back,
-					d = "Out",
-					g = {Size = UDim2.new(1, -18, 1, -18)}
-				}):Play()
-		
-				task.delay(0.08, function()
-					tw({
-						v = Background,
-						t = 0.15,
-						s = Enum.EasingStyle.Back,
-						d = "Out",
-						g = {Size = UDim2.new(1, -10, 1, -10)}
-					}):Play()
-				end)
-		
-				pcall(closeui)
-			end)
-		end		
+            local CloseUI = p.CloseUIButton
+        
+            local CloseUIShadow = Instance.new("ImageLabel")
+            CloseUIShadow.Name = "CloseUIShadow"
+            CloseUIShadow.Parent = ScreenGui
+            CloseUIShadow.BackgroundTransparency = 1
+            CloseUIShadow.Position = UDim2.new(0, 320, 0, 24)
+            CloseUIShadow.Size = UDim2.new(0, 44, 0, 44)
+            CloseUIShadow.Image = "rbxassetid://1316045217"
+            CloseUIShadow.ImageColor3 = Color3.fromRGB(20, 20, 20)
+            CloseUIShadow.ImageTransparency = 0.35
+            CloseUIShadow.ScaleType = Enum.ScaleType.Slice
+            CloseUIShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+            CloseUIShadow.Visible = CloseUI.Enabled
+            CloseUIShadow.ZIndex = 10
+        
+            addToTheme("Shadow", CloseUIShadow)
+        
+            local Background = Instance.new("Frame")
+            Background.Parent = CloseUIShadow
+            Background.AnchorPoint = Vector2.new(0.5, 0.5)
+            Background.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Background.Size = UDim2.new(1, -6, 1, -6)
+            Background.BackgroundColor3 = Color3.fromRGB(18, 18, 22)
+            Background.BorderSizePixel = 0
+            Background.ClipsDescendants = true
+            Background.ZIndex = 11
+        
+            addToTheme("Background", Background)
+        
+            local Corner = Instance.new("UICorner")
+            Corner.CornerRadius = UDim.new(0, 8)
+            Corner.Parent = Background
+        
+            local Icon = Instance.new("ImageLabel")
+            Icon.Parent = Background
+            Icon.AnchorPoint = Vector2.new(0.5, 0.5)
+            Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Icon.Size = UDim2.new(0, 26, 0, 26)
+            Icon.BackgroundTransparency = 1
+            Icon.Image = "rbxassetid://138982533777707"
+            Icon.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Icon.ZIndex = 12
+        
+            addToTheme("Text & Icon", Icon)
+        
+            -- Click
+            local Click = click(CloseUIShadow)
+            lak(Click, CloseUIShadow)
+        
+            Click.MouseButton1Click:Connect(function()
+                tw({
+                    v = Icon,
+                    t = 0.12,
+                    s = Enum.EasingStyle.Back,
+                    d = "Out",
+                    g = {Size = UDim2.new(0, 22, 0, 22)}
+                }):Play()
+        
+                task.delay(0.08, function()
+                    tw({
+                        v = Icon,
+                        t = 0.12,
+                        s = Enum.EasingStyle.Back,
+                        d = "Out",
+                        g = {Size = UDim2.new(0, 26, 0, 26)}
+                    }):Play()
+                end)
+        
+                pcall(closeui)
+            end)
+        end                
 	end
 
 	return Tabs
